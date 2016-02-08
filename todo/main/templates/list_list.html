@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List View</title>
+
+</head>
+<body>
+	
+	{% for list in list_list %}
+
+
+<p>{{ list.task }}  <input {% if list.done %} checked {% endif %} type="checkbox" name="done" value="completed">{{ list.date }}</p>
+
+
+	
+	 
+	 {% endfor %}
+
+	<form method="POST" action="/listview/">
+	{% csrf_token %}
+	<input  type="text" name="todo">
+	<input  type="date" name="when">
+	<br/>
+	<input type="submit" value="Create">
+	</form>
+
+</body>
+</html>
